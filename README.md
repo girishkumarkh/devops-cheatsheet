@@ -22,8 +22,7 @@ $ sudo chmod -R 777 /home/<project-name>/public/
 $ pg_dump --host=<host-name> --dbname=<db-name> --username=<db-username> --port=<port>
 ```
 
-#### SCP (Secure copy) securely transferring computer files between a local host 
-and a remote host or between two remote hosts.
+#### SCP (Secure copy) securely transferring computer files between a local host and a remote host or between two remote hosts.
 ```
 # REMOTE to REMOTE:
 $ scp username1@hostname1:/path/to/file username2@hostname2:/path/to/other/file
