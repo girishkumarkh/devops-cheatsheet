@@ -1,6 +1,6 @@
 # DevOps Cheat Sheet
 
-#### Ubuntu Initial
+#### Ubuntu
 ```
 $ sudo apt-get update
 $ sudo apt-get upgrade
@@ -14,6 +14,10 @@ $ sudo groupadd wwwusers
 $ sudo adduser www-data wwwusers
 $ sudo chgrp -R wwwusers /home/<project-name>/public/
 $ sudo chmod -R 777 /home/<project-name>/public/
+
+# Get postgresql dump from a remote location
+# ------------------
+$ pg_dump --host=<host-name> --dbname=<db-name> --username=<db-username> --port=<port>
 ```
 
 #### PostgreSQL
