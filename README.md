@@ -17,11 +17,6 @@ $ sudo chgrp -R wwwusers /home/<project-name>/public/
 $ sudo chmod -R 777 /home/<project-name>/public/
 ```
 
-#### Get postgresql dump from a remote location
-```
-$ pg_dump --host=<host-name> --dbname=<db-name> --username=<db-username> --port=<port>
-```
-
 #### SCP (Secure copy) securely transferring computer files between a local host and a remote host or between two remote hosts.
 ```
 # REMOTE to REMOTE:
@@ -41,6 +36,22 @@ $ createdb mydb
 $ createuser <myuser> -P
 $ psql
 $ GRANT ALL PRIVILEGES ON DATABASE mydb TO myuser;
+```
+
+#### PostgreSQL DUMP
+```
+# From REMOTE:
+$ pg_dump --host=<host-name> --dbname=<db-name> --username=<db-username> --port=<port> > db.sql
+# From LOCAL:
+$ pg_dump <db-name> > db.sql
+```
+
+#### PostgreSQL RESTORE
+```
+# From LOCAL:
+$ pg_restore "<db-name>" db.dump
+# If fails:
+$ cat db.dump | psql "<db-name>"
 ```
 
 #### Nginx
