@@ -18,6 +18,17 @@ $ sudo chmod -R 777 /home/<project-name>/public/
 # Get postgresql dump from a remote location
 # ------------------
 $ pg_dump --host=<host-name> --dbname=<db-name> --username=<db-username> --port=<port>
+
+# SCP (Secure copy) securely transferring computer files between a local host and a remote host or between two remote hosts.
+# ------------------
+# HOST to HOST:
+$ scp username1@hostname1:/path/to/file username2@hostname2:/path/to/other/file
+# HOST to LOCAL:
+$ scp username@hostname:/path/to/remote/file /path/to/local/file
+# LOCAL to HOST:
+$ scp /path/to/local/file username@hostname:/path/to/remote/file
+# Using with port no:
+$ scp -P 1234 username@hostname:/path/to/remote/file /path/to/local/file
 ```
 
 #### PostgreSQL
