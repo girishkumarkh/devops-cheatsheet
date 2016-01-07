@@ -1,27 +1,30 @@
-# DevOps Cheat Sheet
+# DevOps Ubuntu Cheat Sheet
 
-#### Ubuntu
+#### Initial
 ```
 $ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get install python-psycopg2
 $ sudo apt-get install libpq-dev
 $ sudo apt-get install libjpeg-dev
+```
 
-# Permision settings
-# ------------------
+#### Permision settings
+```
 $ sudo groupadd wwwusers
 $ sudo adduser www-data wwwusers
 $ sudo chgrp -R wwwusers /home/<project-name>/public/
 $ sudo chmod -R 777 /home/<project-name>/public/
+```
 
-# Get postgresql dump from a remote location
-# ------------------
+#### Get postgresql dump from a remote location
+```
 $ pg_dump --host=<host-name> --dbname=<db-name> --username=<db-username> --port=<port>
+```
 
-# SCP (Secure copy) securely transferring computer files between a local host 
+#### SCP (Secure copy) securely transferring computer files between a local host 
 and a remote host or between two remote hosts.
-# ------------------
+```
 # REMOTE to REMOTE:
 $ scp username1@hostname1:/path/to/file username2@hostname2:/path/to/other/file
 # REMOTE to LOCAL:
