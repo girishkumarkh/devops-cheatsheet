@@ -64,6 +64,8 @@ $ sudo ln -s /etc/nginx/sites-available/<project-name> /etc/nginx/sites-enabled
 
 # Test nginx for errors
 $ sudo nginx -t
+# Show recent logs
+$ sudo cat /var/log/nginx/error.log
 ```
 
 #### Gunicorn
