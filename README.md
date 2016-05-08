@@ -54,6 +54,33 @@ $ pg_restore "<db-name>" db.dump
 $ cat db.dump | psql "<db-name>"
 ```
 
+#### PostgreSQL 9.3 Config files Locations
+```
+$ /etc/postgresql/9.3/main/postgresql.conf
+$ /etc/postgresql/9.3/main/pg_hba.conf
+```
+
+#### Updating PostgreSQL 9.3 to 9.4 on Ubuntu
+```
+# Saving your config files [Optional]:
+$ sudo cp /etc/postgresql/9.3/main/postgresql.conf ~/path/to/location
+$ sudo cp /etc/postgresql/9.3/main/pg_hba.conf ~/path/to/location
+# Package repo (for apt-get)
+$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+$ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" >> /etc/apt/sources.list.d/postgresql.list'
+# Update the apt-get
+$ sudo apt-get update
+$ sudo apt-get upgrade
+# Install postgres 9.4
+$ sudo apt-get install postgresql-9.4 postgresql-server-dev-9.4 postgresql-contrib-9.4
+# Get latest postgis for 9.4 (optional)
+$ sudo apt-get install postgresql-9.4-postgis
+# Dump your data
+$ sudo su postgres
+$ cd /mnt/dumps
+$ /usr/lib/postgresql/9.4/bin/pg_dumpall > pre_upgrade_from_9.3_to_9.4.dump
+```
+
 #### Nginx
 ```
 $ sudo service nginx start
