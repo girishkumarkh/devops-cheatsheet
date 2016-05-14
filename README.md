@@ -29,6 +29,20 @@ $ scp /path/to/local/file username@hostname:/path/to/remote/file
 $ scp -P 1234 username@hostname:/path/to/remote/file /path/to/local/file
 ```
 
+#### Unzip files
+```
+# Install 7zip:
+$ sudo apt-get install 7zip unzip
+# Example:
+$ unzip nameofthefile -d directory
+```
+
+#### Manage files
+```
+# Move File:
+$ mv /home/user/testfile /home/user/testfile2
+```
+
 #### PostgreSQL
 ```
 $ sudo su - postgres
