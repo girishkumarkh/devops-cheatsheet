@@ -108,6 +108,43 @@ $ sudo nginx -t
 # Show recent logs
 $ sudo cat /var/log/nginx/error.log
 ```
+#### Setting up uWSGI
+```
+$ sudo pip install uwsgi
+$ sudo mkdir -p /etc/uwsgi/sites
+$ cd /etc/uwsgi/sites
+$ sudo nano <project-name>.ini
+```
+```
+[uwsgi]
+project = <project-name>
+base = /home
+
+chdir = %(base)/%(project)
+home = %(base)/Env/%(project)
+module = %(project).wsgi:application
+
+master = true
+processes = 5
+
+socket = %(base)/%(project)/%(project).sock
+chmod-socket = 664
+vacuum = true
+```
+```
+$ sudo nano /etc/init/uwsgi.conf
+```
+```
+description "uWSGI application server"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+setuid user
+setgid www-data
+
+exec /usr/local/bin/uwsgi --emperor /etc/uwsgi/sites
+```
 
 #### Gunicorn
 ```
@@ -115,4 +152,12 @@ $ sudo nano /etc/init/gunicorn.conf
 $ sudo service gunicorn start
 $ sudo service gunicorn stop
 $ sudo service gunicorn restart
+```
+
+#### uWSGI
+```
+$ sudo nano /etc/init/uwsgi.conf
+$ sudo service uwsgi start
+$ sudo service uwsgi stop
+$ sudo service uwsgi restart
 ```
