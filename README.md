@@ -108,6 +108,7 @@ $ sudo nginx -t
 # Show recent logs
 $ sudo cat /var/log/nginx/error.log
 ```
+
 #### Setting up uWSGI
 ```
 $ sudo pip install uwsgi
