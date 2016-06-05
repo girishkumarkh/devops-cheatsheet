@@ -162,3 +162,8 @@ $ sudo service uwsgi start
 $ sudo service uwsgi stop
 $ sudo service uwsgi restart
 ```
+
+### MongoDB
+```
+$ killall -15 mongod
+```
