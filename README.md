@@ -43,6 +43,12 @@ $ unzip nameofthefile -d directory
 $ mv /home/user/testfile /home/user/testfile2
 ```
 
+#### git
+```
+# Remove local git tags
+$ git tag -d TagName && git push origin :refs/tags/TagName
+```
+
 #### PostgreSQL
 ```
 $ sudo su - postgres
