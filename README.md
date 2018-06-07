@@ -106,6 +106,8 @@ $ ssh-add ~/.ssh/id_rsa
 ```
 # REMOTE to REMOTE:
 $ scp username1@hostname1:/path/to/file username2@hostname2:/path/to/other/file
+# RSYNC Alternative - by creating temp file locally
+$ dir=`mktemp -d` && cd $dir && rsync -avz username1@hostname1:~/source . && rsync -avz . username2@hostname2:~/dest && rm -rvf $dir
 # REMOTE to LOCAL:
 $ scp username@hostname:/path/to/remote/file /path/to/local/file
 # LOCAL to REMOTE:
