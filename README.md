@@ -252,6 +252,8 @@ $ pg_dump <db-name> > db.sql
 $ pg_restore "<db-name>" db.dump
 # If fails:
 $ cat db.dump | psql "<db-name>"
+# Other Alternative - https://www.axiomq.com/blog/backup-and-restore-a-postresql-database/
+$ psql -U db_user db_name < dump_name.sql
 ```
 
 #### PostgreSQL 9.3 Config files Locations
